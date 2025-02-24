@@ -1,4 +1,4 @@
-import { Home, Users } from "lucide-react";
+import { Home, Settings, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -32,7 +32,7 @@ const Sidebar = () => {
               to="/"
               className="flex items-center px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md transition-colors duration-200"
             >
-              <Home />
+              <Settings />
               <span>Settings</span>
             </Link>
           </nav>

@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Sidebar from "./components/SideBar";
+
 import HomePage from "./pages/HomePage";
 import Addstudent from "./pages/Addstudent";
 import { Toaster } from "react-hot-toast";
 import EditStudent from "./pages/EditStudent";
+import Sidebar from "./components/SideBar";
 
 const App = () => {
   return (
