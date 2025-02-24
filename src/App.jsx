@@ -5,12 +5,13 @@ import HomePage from "./pages/HomePage";
 import Addstudent from "./pages/Addstudent";
 import { Toaster } from "react-hot-toast";
 import EditStudent from "./pages/EditStudent";
-import Sidebar from "./components/Sidebar";
+import SideBar from "./components/SideBar";
+
 
 const App = () => {
   return (
     <div className="flex  bg-gray-100flex h-screen bg-gray-100">
-      <Sidebar />
+      <SideBar/>
       <div className="flex-1 p-8 overflow-y-auto">
         <Routes>
           <Route path="/" element={<HomePage />} />
