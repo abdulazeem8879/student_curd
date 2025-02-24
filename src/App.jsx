@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 import Addstudent from "./pages/Addstudent";
 import { Toaster } from "react-hot-toast";
 import EditStudent from "./pages/EditStudent";
-import Sidebar from "./components/SideBar";
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
