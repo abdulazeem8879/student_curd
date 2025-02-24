@@ -1,5 +1,8 @@
 import axios from "axios";
+import { Edit, Trash } from "lucide-react";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Table = () => {
   const [data, setData] = useState([]);
@@ -20,10 +23,24 @@ const Table = () => {
     fetchData();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(
+        `https://studentcurd-api.onrender.com/student/deleteOneStudent/${id}`
+      );
+
+      // console.log("user deleted successfully")
+      toast.success("user deleted successfully");
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const filteredArray = data.filter((student) => {
     return (
       // condition filterd two name and grade
-      student.name.toLowerCase().includes(search.toLowerCase()) || 
+      student.name.toLowerCase().includes(search.toLowerCase()) ||
       student.grade.toLowerCase().includes(search.toLowerCase())
     );
   });
@@ -61,6 +78,9 @@ const Table = () => {
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Grade
             </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Actions
+            </th>
           </tr>
         </thead>
 
@@ -70,7 +90,7 @@ const Table = () => {
           <tbody className="divide-y divide-gray-200">
             {filteredArray.map((item) => (
               <tr
-                key={item.id}
+                key={item._id}
                 className="hover:bg-gray-50 transition-colors duration-200"
               >
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -84,6 +104,14 @@ const Table = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {item.grade}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 flex gap-8">
+                  <Link to="/edit-students" state={{student:item}}>
+                    <Edit className="text-blue-500" />
+                  </Link>
+                  <Link onClick={() => handleDelete(item._id)}>
+                    <Trash className="text-red-500" />
+                  </Link>
                 </td>
               </tr>
             ))}
