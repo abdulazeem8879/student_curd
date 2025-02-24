@@ -1,17 +1,18 @@
-import { Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import HomePage from "./pages/HomePage";
 import Addstudent from "./pages/Addstudent";
 import { Toaster } from "react-hot-toast";
 import EditStudent from "./pages/EditStudent";
-import SideBar from "./components/SideBar";
+import Sidebar1 from "./components/Sidebar1";
+
 
 
 const App = () => {
   return (
     <div className="flex  bg-gray-100flex h-screen bg-gray-100">
-      <SideBar/>
+      <Sidebar1/>
       <div className="flex-1 p-8 overflow-y-auto">
         <Routes>
           <Route path="/" element={<HomePage />} />
